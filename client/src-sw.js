@@ -44,9 +44,9 @@ registerRoute(
   })
 );
 
-// Register a fallback strategy for offline content
-offlineFallback({
-  // Use a fallback URL when the user is offline
-  url: '/index.html',
-});
+// // Register a fallback strategy for offline content
+// offlineFallback({
+//   // Use a fallback URL when the user is offline
+//   url: '/index.html',
+// });
 

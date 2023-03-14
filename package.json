@@ -10,7 +10,7 @@
     "build": "webpack",
     "install": "cd client && npm install",
     "client": "cd client && npm start",
-    "dev": "webpack-dev-server --open"
+    "dev": "cd client && webpack-dev-server --open"
   },
   "keywords": [],
   "author": "",

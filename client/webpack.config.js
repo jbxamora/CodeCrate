@@ -16,6 +16,9 @@ module.exports = () => {
       filename: "[name].bundle.js", // The name of the output file
       path: path.resolve(__dirname, "dist"), // The directory where the output file should be placed
     },
+    resolve: {
+      extensions: [".js"], // An array of file extensions to resolve
+    },
     devServer: {
       hot: "only", // Enables hot module replacement for the webpack-dev-server
     },
@@ -30,9 +33,11 @@ module.exports = () => {
         description: "Just Another Text Editor!", // A description of the app
         background_color: "#225ca3", // The background color of the app
         theme_color: "#225ca3", // The color theme of the app
+        publicPath: "./",
+        start_url: "./", // The URL to open when the app is launched
         icons: [ // An array of icon objects
           {
-            src: path.resolve("src/images/logo.png"), // The path to the icon file
+            src: path.resolve("./src/images/logo.png"), // The path to the icon file
             sizes: [96, 128, 192, 256, 384, 512], // The sizes of the icon file to generate
             destination: path.join("assets", "icons"), // The directory to output the icon files
           },

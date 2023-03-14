@@ -22,16 +22,36 @@ module.exports = () => {
       hot: 'only',
     },
     plugins: [
-      
+      new HtmlWebpackPlugin({
+        template: './index.html',
+        title: 'JATE'
+      }),
+      new WebpackPwaManifest({
+        name: 'JATE',
+        short_name: 'JATE',
+        description: 'Just Another Text Editor!',
+        background_color: '#225ca3',
+        theme_color: '#225ca3',
+        icons: [
+          {
+            src: path.resolve('src/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join('assets', 'icons'),
+          },
+        ],
+      }),
+      new InjectManifest({
+        swSrc: './src-sw.js',
+        swDest: 'src-sw.js',
+      }),
     ],
-
     module: {
       rules: [
         {
           test: /\.css$/i,
           use: ['style-loader', 'css-loader'],
         },
-        
+
       ],
     },
   };

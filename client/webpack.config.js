@@ -7,7 +7,7 @@ const { InjectManifest } = require("workbox-webpack-plugin"); // Generates a ser
 // Export a function that returns the webpack configuration
 module.exports = () => {
   return {
-    mode: "development", // Sets the mode to development
+    mode: "production", // Sets the mode to development
     entry: { // Specifies entry points for the application
       main: "./src/js/index.js", // The main entry point
       install: "./src/js/install.js", // The entry point for the install page
@@ -37,7 +37,7 @@ module.exports = () => {
         start_url: "./", // The URL to open when the app is launched
         icons: [ // An array of icon objects
           {
-            src: path.resolve("./src/images/logo.png"), // The path to the icon file
+            src: path.resolve("src/images/logo.png"), // The path to the icon file
             sizes: [96, 128, 192, 256, 384, 512], // The sizes of the icon file to generate
             destination: path.join("assets", "icons"), // The directory to output the icon files
           },
@@ -53,6 +53,10 @@ module.exports = () => {
         {
           test: /\.css$/i, // A regular expression that matches CSS files
           use: ["style-loader", "css-loader"], // The loaders to use for processing the matched files
+        },
+        {
+          test: /\.(png|svg|jpg|jpeg|gif)$/i,
+          type: 'asset/resource',
         },
       ],
     },

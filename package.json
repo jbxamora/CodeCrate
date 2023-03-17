@@ -7,7 +7,7 @@
     "start:dev": "concurrently \"npm run server\" \"npm run dev\"",
     "start": "npm run build && node server.js",
     "server": "nodemon server.js",
-    "build": "webpack",
+    "build": "cd client && webpack",
     "install": "cd client && npm install && cd ../server && npm install",
     "client": "cd client && npm start",
     "dev": "cd client && webpack-dev-server --open"
